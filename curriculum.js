@@ -14,34 +14,20 @@ function loadJSON(callback) {
 
 loadJSON( response => {
     courses = JSON.parse(response);
-
 });
-
-console.log(courses);
 
 
 //create element
-const createCourseElement = ({
-    id,
-    title,
-    credits,
-    requires,
-    quarter,
-    isCompleted
-}) => {
+const createCourseElement = ({id,title,credits,requires,quarter,isCompleted}) => {
 
     const course = document.createElement('div');
     const courseTitle = document.createElement('h2');
     const courseCredits = document.createElement('p');
 
     course.id = id;
-    course.className = 'course';
-    course.onclick = function EventHandler() {
-        //change course color
-        //add course credits to total credits if isCompleted == false
-        //remove course credits from total credits if isCompleted == true
-        //change isCompleted to true
-    };
+    course.classList.add('course');
+    course.classList.add(setCourseStatus(course.id));
+    course.onclick = _ => completeCourse(course);
     courseTitle.innerHTML = `[${id}] ${title}`;
     courseTitle.className = 'course-title';
 
@@ -55,6 +41,7 @@ const createCourseElement = ({
 }
 
 const completeCourse = (course) => {
+    console.log(course);
 
     const courseData = courses.find(c => course.id == c.id);
 
@@ -69,10 +56,16 @@ const completeCourse = (course) => {
         }
     }
 }
-
+ 
+const setCourseStatus = (course) => {
+    if (courses.find(c => c.id === course.id).requires.length) {
+        return 'available';
+    } else {
+        return 'blocked';
+    }
+}
 const curriculumContainer = document.getElementById('curriculum');
 
 for (let c of courses){
-
     curriculumContainer.appendChild(createCourseElement(c));
 }
