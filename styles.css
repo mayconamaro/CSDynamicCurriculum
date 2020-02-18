@@ -30,7 +30,7 @@ h1 {
     color: var(--heading-color);
 }
 
-#curriculum {
+.curriculum {
     padding-top: 20px;
     padding-bottom: 20px;
     display: flex;
@@ -66,14 +66,12 @@ h1 {
 }
 
 .course {
-
     width: 150px;
     height: 200px;
     border: 1px solid var(--box-border-color);
     display: flex;
     justify-content: space-around;
     flex-direction: column;
-    background-color: var(--box-blocked-color); /* so ate consertar o js*/
 }
 
 .course.blocked {
