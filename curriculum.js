@@ -69,8 +69,7 @@ const createGrid = _ => {
 
 
 const completeCourse = (course) => {
-    console.log(course);
-
+ 
     const courseData = courses.find(c => course.id == c.id);
 
     if (!courseData.isCompleted) {
@@ -78,7 +77,8 @@ const completeCourse = (course) => {
         const isRequirementsMet = courseData.requires.map(c => c.isCompleted);
 
         if (isRequirementsMet.every(c => c)) {
-            //tirar a classe available e colocar a classe completed
+            course.classList.remove('available');
+            course.classList.add('completed');
             console.log("requirements met!");
         } else {
             console.log("some requirements aren't met");
@@ -90,7 +90,7 @@ const setCourseStatus = (id) => {
 
     const courseData = courses.find(c => c.id === id);
 
-    if (!courseData.requires.length || courseData.requires.map(c => c.isCompleted))
+    if (!courseData.requires.length || (courseData.requires.map(c => c.isCompleted)).every(c => c))
         return 'available';
     else
         return 'blocked';
