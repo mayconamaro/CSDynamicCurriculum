@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.course {
+
+    width: 120px;
+    border: 2px #000 solid;
+    margin-bottom: 20px;
+}
+
+.course-title {
+
+    font-size: 14px;
+    padding-bottom: 20px;
+    text-align: center;
+    font-family: 'Source Sans Pro', 'sans-serif';
+}
+
+.course-credits {
+
+    text-align: center;
+    font-size: 12px;
+}

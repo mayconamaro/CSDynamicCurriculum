@@ -1,24 +1,18 @@
 // parse json file
 var courses;
 function loadJSON(callback) {
-    //criamos uma instancia da xmlhttprequest
     const xobj = new XMLHttpRequest();
     xobj.overrideMimeType("application/json");
     xobj.open('GET', 'courses.json', false);
-    //carregamos o cnoteudo do courses.json de forma sync (se colocar true ali em cima, muda pra async)
     xobj.onreadystatechange = function () {
-        if (xobj.readyState == 4 && xobj.status == "200") { //tivemos sucesso nesse get?
-            //siiiim
+        if (xobj.readyState == 4 && xobj.status == "200") { 
             callback(xobj.responseText);
-            //chama a funcao q passamos por callback :)
         }
     };
-    ///naaaao :( mandamos nulll
     xobj.send(null);
 }
 
 loadJSON( response => {
-    //funcao q passamos pro callback vai fazer oq, fazer um parse na resposta da request e armazenar isso numa variavel global :)
     courses = JSON.parse(response);
 
 });
@@ -74,4 +68,11 @@ const completeCourse = (course) => {
             console.log("some requirements aren't met");
         }
     }
+}
+
+const curriculumContainer = document.getElementById('curriculum');
+
+for (let c of courses){
+
+    curriculumContainer.appendChild(createCourseElement(c));
 }
