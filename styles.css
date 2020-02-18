@@ -1,4 +1,14 @@
-@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap');
+:root {
+    --heading-color: #fff;
+    --nav-bg-color: #4897d8;
+    --box-blocked-color: #fa6e59;
+    --box-available-color: blue;
+    --box-completed-color: green;
+    --box-font-color: #fff;
+    --instructions-bg-color: #f8a055;
+    --box-border-color: #000;
+    --credit-info-border-color: #f8a055;
+}
 
 * {
     padding: 0;
@@ -6,23 +16,109 @@
     box-sizing: border-box;
 }
 
+header {
+    width: 100%;
+    height: 100px;
+    background-color: var(--nav-bg-color);
+}
+
+h1 {
+    font-family: 'Nunito', 'sans-serif';
+    font-size: 36px;
+    text-align: center;
+    padding-top: 20px;
+    color: var(--heading-color);
+}
+
+#curriculum {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    display: flex;
+    flex-flow: wrap;
+}
+
+.instructions {
+    text-align: center;
+    background-color: var(--instructions-bg-color);
+    color: var(--heading-color);
+    font-size: 18px;
+    font-family: 'Nunito', 'sans-serif';
+    height: 50px;
+}
+
+.instructions p {
+    padding-top: 10px;
+}
+
+.credit-info {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+}
+
+.credit-info-text {
+    width: auto;
+    font-family: 'Nunito', 'sans-serif';
+    font-size: 18px;
+    border-bottom: 2px solid var(--credit-info-border-color);
+    text-align: center;
+}
+
 .course {
 
-    width: 120px;
-    border: 2px #000 solid;
-    margin-bottom: 20px;
+    width: 150px;
+    height: 200px;
+    border: 1px solid var(--box-border-color);
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    background-color: var(--box-blocked-color); /* so ate consertar o js*/
+}
+
+.course.blocked {
+    background-color: var(--box-blocked-color);
+}
+
+.course.available{
+    background-color: var(--box-available-color);
+}
+
+.course.completed{
+    background-color: var(--box-completed-color);
 }
 
 .course-title {
 
-    font-size: 14px;
-    padding-bottom: 20px;
+    font-size: 18px;
+    padding: 15px 10px;
     text-align: center;
     font-family: 'Source Sans Pro', 'sans-serif';
+    color: var(--box-font-color);
 }
 
 .course-credits {
 
     text-align: center;
-    font-size: 12px;
+    font-size: 16px;
+    font-family: 'Source Sans Pro', 'sans-serif';
+    color: var(--box-font-color);
+}
+
+footer{
+    height: 50px;
+    width: 100%;
+    background-color: var(--nav-bg-color);
+    color: var(--heading-color);
+}
+
+footer p {
+    padding-top: 15px;
+    text-align: center;
+    font-family: 'Nunito', 'sans-serif';
+}
+
+.heart {
+    color: var(--instructions-bg-color);
+    font-size: 18px;
 }
