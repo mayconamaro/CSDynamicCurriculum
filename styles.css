@@ -2,11 +2,11 @@
     --heading-color: #fff;
     --nav-bg-color: #4897d8;
     --box-blocked-color: #fa6e59;
-    --box-available-color: blue;
-    --box-completed-color: green;
+    --box-available-color: #4897d8;
+    --box-completed-color: #48E860;
     --box-font-color: #fff;
     --instructions-bg-color: #f8a055;
-    --box-border-color: #000;
+    --box-border-color: #ffdb5c;
     --credit-info-border-color: #f8a055;
 }
 
@@ -31,10 +31,16 @@ h1 {
 }
 
 .curriculum {
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding: 20px 10px;
     display: flex;
-    flex-flow: wrap;
+    flex-flow: row;
+    justify-content: space-around;
+    margin: auto;
+}
+
+.curriculum-column {
+    display: flex;
+    flex-direction: column;
 }
 
 .instructions {
@@ -72,6 +78,7 @@ h1 {
     display: flex;
     justify-content: space-around;
     flex-direction: column;
+    margin-bottom: 5px;
 }
 
 .course.blocked {
