@@ -1,0 +1,20 @@
+{
+  "name": "CSDynamicCurriculum",
+  "version": "1.0.0",
+  "description": "Dynamic Computer Science Curriculum for Federal University of Ouro Preto",
+  "main": "curriculum.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mayconamaro/CSDynamicCurriculum.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mayconamaro/CSDynamicCurriculum/issues"
+  },
+  "homepage": "https://github.com/mayconamaro/CSDynamicCurriculum#readme"
+}
