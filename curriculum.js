@@ -58,11 +58,11 @@ const completeCourse = (course) => {
 }
  
 const setCourseStatus = (course) => {
-    if (courses.find(c => c.id === course.id).requires.length) {
+    if (courses.find(c => c.id === course.id).requires.length) 
         return 'available';
-    } else {
+    else 
         return 'blocked';
-    }
+    
 }
 const curriculumContainer = document.getElementById('curriculum');
 
