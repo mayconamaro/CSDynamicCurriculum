@@ -122,3 +122,36 @@ footer p {
     color: var(--instructions-bg-color);
     font-size: 18px;
 }
+
+@media only screen and (min-width: 570px) and (max-width: 899px){
+
+    header{
+        height: 150px;
+    }
+}
+
+@media only screen and (min-width: 375px) and (max-width: 569px) {
+    
+    header {
+        height: 170px;
+    }
+
+    .instructions {
+        height: 70px;
+    }
+}
+
+@media only screen and (max-width: 374px) {
+    header {
+        height: 170px;
+    }
+
+    h1 {
+        font-size: 30px;
+    }
+
+    .instructions {
+        height: 70px;
+        font-size: 16px;
+    }
+}
