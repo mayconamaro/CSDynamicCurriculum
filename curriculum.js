@@ -1,24 +1,23 @@
-// parse json file
 var courses;
+const curriculumContainer = document.getElementById('curriculum');
+
 function loadJSON(callback) {
     const xobj = new XMLHttpRequest();
     xobj.overrideMimeType("application/json");
     xobj.open('GET', 'courses.json', false);
     xobj.onreadystatechange = function () {
-        if (xobj.readyState == 4 && xobj.status == "200") { 
+        if (xobj.readyState == 4 && xobj.status == "200") {
             callback(xobj.responseText);
         }
     };
     xobj.send(null);
 }
 
-loadJSON( response => {
+loadJSON(response => {
     courses = JSON.parse(response);
 });
 
-
-//create element
-const createCourseElement = ({id,title,credits,requires,quarter,isCompleted}) => {
+const createCourseElement = ({id, title, credits, requires, quarter, isCompleted}) => {
 
     const course = document.createElement('div');
     const courseTitle = document.createElement('h2');
@@ -40,6 +39,35 @@ const createCourseElement = ({id,title,credits,requires,quarter,isCompleted}) =>
     return course;
 }
 
+const createGrid = _ => {
+
+    const quarters = courses.reduce(function (memo, course) {
+        if (!memo[course["quarter"]]) {
+            memo[course["quarter"]] = [];
+        }
+        memo[course["quarter"]].push(course);
+        return memo;
+    }, {});
+
+    const columns = [];
+
+    for (const [i, q] of Object.entries(quarters)) {
+        console.log(q);
+        const col = document.createElement('div');
+        col.className = 'curriculum-column';
+        q.forEach(course => {
+            col.appendChild(createCourseElement(course));
+        });
+        columns.push(col);
+    }
+
+    for (let c of columns) {
+        curriculumContainer.appendChild(c);
+    }
+}
+
+
+
 const completeCourse = (course) => {
     console.log(course);
 
@@ -50,22 +78,23 @@ const completeCourse = (course) => {
         const isRequirementsMet = courseData.requires.map(c => c.isCompleted);
 
         if (isRequirementsMet.every(c => c)) {
+            //tirar a classe available e colocar a classe completed
             console.log("requirements met!");
         } else {
             console.log("some requirements aren't met");
         }
     }
 }
- 
-const setCourseStatus = (course) => {
-    if (courses.find(c => c.id === course.id).requires.length) 
-        return 'available';
-    else 
-        return 'blocked';
-    
-}
-const curriculumContainer = document.getElementById('curriculum');
 
-for (let c of courses){
-    curriculumContainer.appendChild(createCourseElement(c));
+const setCourseStatus = (id) => {
+
+    const courseData = courses.find(c => c.id === id);
+
+    if (!courseData.requires.length || courseData.requires.map(c => c.isCompleted))
+        return 'available';
+    else
+        return 'blocked';
+
 }
+
+createGrid();
