@@ -23,7 +23,25 @@ const createCourseElement = ({ id, title, credits, requires, quarter, isComplete
     courseCredits.innerHTML = `${credits} horas`;
     courseCredits.className = 'course-credits'
 
+    course.appendChild(courseTitle);
+    course.appendChild(courseCredits);
 
+    return course;
 }
 
+const completeCourse = (course) => {
+
+    const courseData = courses.find(c => course.id == c.id);
+
+    if(!courseData.isCompleted){
+
+        const isRequirementsMet = courseData.requires.map( c => c.isCompleted );
+        
+        if(isRequirementsMet.every( c => c )){
+            console.log("requirements met!");
+        } else {
+            console.log("some requirements aren't met");
+        }
+    }
+}
 
