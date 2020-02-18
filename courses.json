@@ -1,0 +1,170 @@
+[
+    {
+        "id": "BCC201",
+        "title": "Introdução à Programação",
+        "credits": 90,
+        "requires": [],
+        "quarter": 1,
+        "isCompleted": false
+    },
+    {
+        "id": "BCC265",
+        "title": "Eletrônica para Computação",
+        "credits": 90,
+        "requires": [],
+        "quarter": 1,
+        "isCompleted": false
+    },
+    {
+        "id": "BCC501",
+        "title": "Introdução à Ciência da Computação",
+        "credits": 30,
+        "requires": [],
+        "quarter": 1,
+        "isCompleted": false
+    },
+    {
+        "id": "MTM122",
+        "title": "Cálculo Diferencial e Integral I",
+        "credits": 90,
+        "requires": [],
+        "quarter": 1,
+        "isCompleted": false
+    },
+    {
+        "id": "MTM131",
+        "title": "Geometria Analítica e Cálculo Vetorial",
+        "credits": 60,
+        "requires": [],
+        "quarter": 1,
+        "isCompleted": false
+    },
+    {
+        "id": "BCC101",
+        "title": "Matemática Discreta I",
+        "credits": 60,
+        "requires": [],
+        "quarter": 2,
+        "isCompleted": false
+    },
+    {
+        "id": "BCC202",
+        "title": "Estrutura de Dados I",
+        "credits": 90,
+        "requires": ["BCC201"],
+        "quarter": 2,
+        "isCompleted": false
+    },
+    {
+        "id": "BCC266",
+        "title": "Organização de Computadores",
+        "credits": 60,
+        "requires": ["BCC201"],
+        "quarter": 2,
+        "isCompleted": false
+    },
+    {
+        "id": "BCC324",
+        "title": "Interação Humano-Computador",
+        "credits": 60,
+        "requires": [],
+        "quarter": 2,
+        "isCompleted": false
+    },
+    {
+        "id": "EAD700",
+        "title": "Prática de Leitura e Produção de Textos",
+        "credits": 60,
+        "requires": [],
+        "quarter": 2,
+        "isCompleted": false
+    },
+    {
+        "id": "MTM123",
+        "title": "Cálculo Diferencial e Integral II",
+        "credits": 60,
+        "requires": ["MTM122"],
+        "quarter": 2,
+        "isCompleted": false
+    },
+    {
+        "id": "BCC102",
+        "title": "Matemática Discreta II",
+        "credits": 60,
+        "requires": ["BCC101"],
+        "quarter": 3,
+        "isCompleted": false
+    },
+    {
+        "id": "BCC203",
+        "title": "Estrutura de Dados II",
+        "credits": 60,
+        "requires": ["BCC202"],
+        "quarter": 3,
+        "isCompleted": false
+    },
+    {
+        "id": "BCC221",
+        "title": "Programação Orientada a Objetos",
+        "credits": 60,
+        "requires": ["BCC202"],
+        "quarter": 3,
+        "isCompleted": false
+    },
+    {
+        "id": "BCC222",
+        "title": "Programação Funcional",
+        "credits": 60,
+        "requires": ["BCC201"],
+        "quarter": 3,
+        "isCompleted": false
+    },
+    {
+        "id": "BCC263",
+        "title": "Arquitetura de Computadores",
+        "credits": 60,
+        "requires": ["BCC266"],
+        "quarter": 3,
+        "isCompleted": false
+    },
+    {
+        "id": "MTM112",
+        "title": "Introdução à Álgebra Linear",
+        "credits": 60,
+        "requires": ["MTM131"],
+        "quarter": 3,
+        "isCompleted": false
+    },
+    {
+        "id": "BCC204",
+        "title": "Teoria dos Grafos",
+        "credits": 60,
+        "requires": ["BCC202"],
+        "quarter": 4,
+        "isCompleted": false
+    },
+    {
+        "id": "BCC264",
+        "title": "Sistemas Operacionais",
+        "credits": 60,
+        "requires": ["BCC202", "BCC263"],
+        "quarter": 4,
+        "isCompleted": false
+    },
+    {
+        "id": "BCC322",
+        "title": "Engenharia de Software I",
+        "credits": 60,
+        "requires": ["BCC221"],
+        "quarter": 4,
+        "isCompleted": false
+    },
+    {
+        "id": "BCC361",
+        "title": "Redes de Computadores",
+        "credits": 60,
+        "requires": ["BCC266"],
+        "quarter": 1,
+        "isCompleted": false
+    }
+]
