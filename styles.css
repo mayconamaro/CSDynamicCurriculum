@@ -1,13 +1,13 @@
-@import url('https://fonts.googleapis.com/css?family=Odibee+Sans|Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Nunito+Sans|Roboto&display=swap');
 /* trocar p roboto e nunito sans */
 
 
 :root {
     --heading-color: #fff;
     --nav-bg-color: #4897d8;
-    --box-blocked-color: #fa6e59;
-    --box-available-color: #4897d8;
-    --box-completed-color: #48E860;
+    --box-blocked-color: #ff9e8b;
+    --box-available-color: #6892e6;
+    --box-completed-color: #59e2d8;
     --box-font-color: #fff;
     --instructions-bg-color: #f8a055;
     --credit-info-border-color: #f8a055;
@@ -18,11 +18,7 @@
     
     --light-pink: #FFE0E0;
 
-    --box-available-color: #6495ed;
-    --box-completed-color: #95ed64;
-    --box-blocked-color: #ed7864;
-
-    --cursive-font: 'Odibee Sans'; /*trocar pra nunito sans */
+    --cursive-font: 'Nunito Sans'; 
     --sans-serif-font: 'Roboto';
 }
 
@@ -40,11 +36,12 @@
 } 
 
 h1 {
-    font-size: 30px;
-    text-align: center;
-    padding-top: 20px;
+    font-size: 32px;
+    text-align: left;
+    padding-top: 27px;
     font-family: var(--cursive-font), cursive;
     color: var(--font-color);
+    text-transform: uppercase;
 }
 
 .navbar {
@@ -69,11 +66,26 @@ h1 {
     -webkit-border-radius: 10px;
     appearance: none;
     border-radius: 10px;
+    border-color: black;
     padding: .5em;
     background-color: black;
     color: white;
 }
 
+.navbar-select {
+    border: none;
+}
+
+.nav-container-right {
+    display: flex;
+    justify-content: space-around;
+    width: 500px;
+    padding-top: 25px;
+}
+
+.logo {
+    width: 120px;
+}
 
 .curriculum {
     width: 1024px;
@@ -102,6 +114,10 @@ h1 {
     padding: 1em 0;
 }
 
+.instructions p {
+    font-size: 20px;
+}
+
 .credit-info {
     width: fit-content;
     display: flex;
@@ -121,7 +137,7 @@ h1 {
 .course {
     width: 100%;
     height: 110px;
-    /* border: 1px solid var(--box-border-color); */
+    border-radius: 10px;
     display: flex;
     justify-content: space-around;
     flex-direction: column;
@@ -176,15 +192,16 @@ h1 {
     padding: 2em 0;
 }
 
-.footer p, .footer p a, .footer p span {
-    font-size: 12px;
+.footer p, .footer p a{
+    font-size: 18px;
     color: white;
     text-align: center;
+    font-family: var(--cursive-font);
 }
 
 .heart {
     color: var(--light-pink);
-    font-size: 10px;
+    font-size: 24px;
 }
 
 @media only screen and (min-width: 570px) and (max-width: 899px){
