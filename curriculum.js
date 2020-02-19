@@ -114,9 +114,7 @@ const courseEventHandler = (course) => {
 
 
 const isRequiredBy = (course) => {
-    return courses.filter(c => {
-        if (c.requires.find(r => r === course.id)) return true
-    });
+    return courses.filter(c => c.requires.find(r => r === course.id));
 }
 
 const getRequires = (course) => {
