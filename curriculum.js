@@ -92,6 +92,7 @@ const courseEventHandler = (course) => {
         });
 
         if (isRequirementsMet.every(c => c)) {
+            
             course.classList.remove('available');
             course.classList.add('completed');
             courses.forEach(course => {
@@ -104,8 +105,16 @@ const courseEventHandler = (course) => {
         }
     } else {
         courseData.isCompleted = false;
+        isRequiredBy(courseData).forEach(r => {
+            courses.find(c => c.id === r.id).isCompleted = false;
+        });
         createGrid();
     }
+}
+
+
+const isRequiredBy = (course) => {
+    return courses.filter(c => c.requires.find(r => r === course.id));
 }
 
 const getRequires = (course) => {
