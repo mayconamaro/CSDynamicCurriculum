@@ -251,7 +251,7 @@
         "id": "BCC327",
         "title": "Computação Gráfica",
         "credits": 60,
-        "requires": ["BCC202", "BCC112"],
+        "requires": ["BCC202", "MTM112"],
         "quarter": 6,
         "isCompleted": false
     },
