@@ -34,13 +34,18 @@ h1 {
     padding: 20px 10px;
     display: flex;
     flex-flow: row;
-    justify-content: space-around;
+    justify-content: center;
     margin: auto;
 }
 
 .curriculum-column {
     display: flex;
     flex-direction: column;
+    padding-left: 5px;
+}
+
+.curriculum-column:first-of-type{
+    padding-left: 0px;
 }
 
 .instructions {
@@ -72,8 +77,8 @@ h1 {
 }
 
 .course {
-    width: 150px;
-    height: 200px;
+    width: 120px;
+    height: 150px;
     border: 1px solid var(--box-border-color);
     display: flex;
     justify-content: space-around;
@@ -95,7 +100,7 @@ h1 {
 
 .course-title {
 
-    font-size: 18px;
+    font-size: 14px;
     padding: 15px 10px;
     text-align: center;
     font-family: 'Source Sans Pro', 'sans-serif';
@@ -105,7 +110,7 @@ h1 {
 .course-credits {
 
     text-align: center;
-    font-size: 16px;
+    font-size: 14px;
     font-family: 'Source Sans Pro', 'sans-serif';
     color: var(--box-font-color);
 }
