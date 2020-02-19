@@ -80,6 +80,7 @@ const completeCourse = (course) => {
         const isRequirementsMet = courseData.requires.map(c => c.isCompleted);
 
         if (isRequirementsMet.every(c => c)) {
+            
             course.classList.remove('available');
             course.classList.add('completed');
             var fullCourseData;
