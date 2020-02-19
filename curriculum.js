@@ -8,7 +8,7 @@ currentYear.innerHTML = date.getFullYear();
 function loadJSON(callback) {
     const xobj = new XMLHttpRequest();
     xobj.overrideMimeType("application/json");
-    xobj.open('GET', 'courses.json', false);
+    xobj.open('GET', './courses/decom.json', false);
     xobj.onreadystatechange = function () {
         if (xobj.readyState == 4 && xobj.status == "200") {
             callback(xobj.responseText);

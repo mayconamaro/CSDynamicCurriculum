@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/mayconamaro/CSDynamicCurriculum/issues"
   },
-  "homepage": "https://github.com/mayconamaro/CSDynamicCurriculum#readme"
+  "homepage": "https://github.com/mayconamaro/CSDynamicCurriculum#readme",
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.12.1"
+  }
 }
