@@ -105,8 +105,18 @@ const courseEventHandler = (course) => {
         }
     } else {
         courseData.isCompleted = false;
+        isRequiredBy(courseData).forEach(r => {
+            courses.find(c => c.id === r.id).isCompleted = false;
+        });
         createGrid();
     }
+}
+
+
+const isRequiredBy = (course) => {
+    return courses.filter(c => {
+        if (c.requires.find(r => r === course.id)) return true
+    });
 }
 
 const getRequires = (course) => {
