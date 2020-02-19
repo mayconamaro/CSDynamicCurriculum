@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Odibee+Sans|Roboto&display=swap');
+/* trocar p roboto e nunito sans */
 
 
 :root {
@@ -21,7 +22,7 @@
     --box-completed-color: #95ed64;
     --box-blocked-color: #ed7864;
 
-    --cursive-font: 'Odibee Sans';
+    --cursive-font: 'Odibee Sans'; /*trocar pra nunito sans */
     --sans-serif-font: 'Roboto';
 }
 
