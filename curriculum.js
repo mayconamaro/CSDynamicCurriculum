@@ -105,16 +105,23 @@ const courseEventHandler = (course) => {
         }
     } else {
         courseData.isCompleted = false;
-        isRequiredBy(courseData).forEach(r => {
-            courses.find(c => c.id === r.id).isCompleted = false;
-        });
+        unCompleteRequiredBy(courseData);
         createGrid();
     }
 }
 
-
 const isRequiredBy = (course) => {
     return courses.filter(c => c.requires.find(r => r === course.id));
+}
+
+const unCompleteRequiredBy = (course) => {
+    isRequiredBy(course).forEach(r => {
+        let c = courses.find(c => c.id === r.id);
+        if(c.isCompleted){
+            c.isCompleted = false;
+            unCompleteRequiredBy(c);
+        }
+    });
 }
 
 const getRequires = (course) => {
