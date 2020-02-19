@@ -27,7 +27,7 @@ const createCourseElement = ({id, title, credits, requires, quarter, isCompleted
     course.classList.add('course');
     course.classList.add(setCourseStatus(course.id));
     course.onclick = _ => completeCourse(course);
-    courseTitle.innerHTML = `[${id}] ${title}`;
+    courseTitle.innerHTML = `[${id}]<br/>${title}`;
     courseTitle.className = 'course-title';
 
     courseCredits.innerHTML = `${credits} horas`;
