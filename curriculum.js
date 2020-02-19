@@ -82,15 +82,33 @@ const completeCourse = (course) => {
         if (isRequirementsMet.every(c => c)) {
             course.classList.remove('available');
             course.classList.add('completed');
+            var fullCourseData;
             courses.forEach(course => {
-                if (course === courseData) {
-                    course.isCompleted = true;
-                }
-            })
+                if (course.id === courseData.id) {
+                    fullCourseData = course;                }
+            });
+            const courseIndex = courses.indexOf(fullCourseData);
+            courses[courseIndex].isCompleted = true;
+            creditSum = creditSum + fullCourseData.credits;
+            let sumSpan = document.getElementById('credit-sum');
+            sumSpan.innerText = creditSum;
+            createGrid();
         } else {
             console.log("some requirements aren't met");
         }
     }
+}
+
+const getRequires = (course) => {
+    const result = course.requires.map(id => {
+       
+        if(isNaN(id)){
+            return courses.find(c => c.id === id)
+        }else{
+            return id;
+        }
+    });
+    return result;
 }
 
 const setCourseStatus = (id) => {
@@ -98,18 +116,17 @@ const setCourseStatus = (id) => {
     const courseData = courses.find(c => c.id === id);
     const requires = getRequires(courseData);
     if (!requires.length) return 'available';
-    if (requires.map(r => r.isCompleted).every(c => c))
+    if (requires.map(r => { 
+        if (isNaN(r)) { 
+            return r.isCompleted;
+        } else {
+            return r <= creditSum;
+        }
+    }).every(c => c))
         return 'available';
     else
         return 'blocked';
 
-}
-
-const getRequires = (course) => {
-    const result = course.requires.map(id => {
-        // só pode fazer o find se o requisito for uma disciplina, e não carga horária
-        return courses.find(c => c.id === id)
-    })
 }
 
 loadJSON(response => {
