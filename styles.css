@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css?family=Nunito&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Odibee+Sans|Roboto&display=swap');
+
 
 :root {
     --heading-color: #fff;
@@ -8,42 +9,58 @@
     --box-completed-color: #48E860;
     --box-font-color: #fff;
     --instructions-bg-color: #f8a055;
-    --box-border-color: #ffdb5c;
     --credit-info-border-color: #f8a055;
+
+    --primary-color: #f8a45e;
+    --light-color: #fac08e;
+    --font-color: #333333;
+
+    --box-available-color: #6495ed;
+    --box-completed-color: #95ed64;
+    --box-blocked-color: #ed7864;
+
+    --cursive-font: 'Odibee Sans';
+    --sans-serif-font: 'Roboto';
 }
 
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    font-family: var(--sans-serif-font), sans-serif;
+    font-size: 18px;
 }
+
 
 header {
     width: 100%;
-    height: 100px;
-    background-color: var(--nav-bg-color);
+    /* height: 100px; */
+    padding: 4em 0 2em;
+    background-color: var(--primary-color); 
 }
 
 h1 {
-    font-family: 'Nunito', 'sans-serif';
-    font-size: 36px;
+    font-size: 30px;
     text-align: center;
     padding-top: 20px;
-    color: var(--heading-color);
+    font-family: var(--cursive-font), cursive;
+    color: var(--font-color);
 }
 
 .curriculum {
-    padding: 20px 10px;
+    width: 1024px;
     display: flex;
     flex-flow: row;
     justify-content: center;
-    margin: auto;
+    margin: 2em auto;
 }
 
 .curriculum-column {
     display: flex;
     flex-direction: column;
-    padding-left: 5px;
+    flex-basis: 100%;
+    padding-left: 1em;
+
 }
 
 .curriculum-column:first-of-type{
@@ -52,69 +69,82 @@ h1 {
 
 .instructions {
     text-align: center;
-    background-color: var(--instructions-bg-color);
-    color: var(--heading-color);
-    font-size: 18px;
-    font-family: 'Nunito', 'sans-serif';
-    height: 50px;
-}
-
-.instructions p {
-    padding-top: 10px;
+    background-color: var(--light-color);
+    color: var(--font-color);
+    padding: 1em 0;
 }
 
 .credit-info {
-    width: 100%;
+    /* width: 100%; */
+    width: fit-content;
     display: flex;
     justify-content: center;
-    padding-top: 20px;
+    padding: 1em;
+    background-color: var(--primary-color);
+    margin-top: 2em;
+    margin-left: 50%;
+    transform: translateX(-50%);
 }
 
 .credit-info-text {
-    width: auto;
-    font-family: 'Nunito', 'sans-serif';
-    font-size: 18px;
-    border-bottom: 2px solid var(--credit-info-border-color);
     text-align: center;
+}
+
+.credit-info-text #credit-sum {
+    background-color: white;
+    padding: 0 .5em;
 }
 
 .course {
-    width: 120px;
-    height: 150px;
-    border: 1px solid var(--box-border-color);
+    width: 100%;
+    height: 110px;
+    /* border: 1px solid var(--box-border-color); */
     display: flex;
     justify-content: space-around;
     flex-direction: column;
-    margin-bottom: 5px;
+    margin-bottom: 1em;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+.course:hover {
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 
 .course.blocked {
+    cursor: not-allowed;
     background-color: var(--box-blocked-color);
 }
 
-.course.available{
+.course.available {
+    cursor: pointer;
     background-color: var(--box-available-color);
 }
 
-.course.completed{
+.course.completed {
+    cursor: pointer;
     background-color: var(--box-completed-color);
 }
 
-.course-title {
-
+.course-title, .course-credits, .course-code {
     font-size: 12px;
-    padding: 0 10px;
     text-align: center;
-    font-family: 'Source Sans Pro', 'sans-serif';
-    color: var(--box-font-color);
+}
+
+.course-code {
+    /* background-color: white; */
+    margin: 0 1em;
+}
+
+.course-title {
+    padding: 0 10px;
+    color: black;
 }
 
 .course-credits {
-
-    text-align: center;
-    font-size: 12px;
-    font-family: 'Source Sans Pro', 'sans-serif';
-    color: var(--box-font-color);
+    background-color: white;
+    color: var(--font-color);
+    margin: 0 2em;
 }
 
 footer{
@@ -127,16 +157,13 @@ footer{
 footer p {
     padding-top: 15px;
     text-align: center;
-    font-family: 'Nunito', 'sans-serif';
 }
 
 .heart {
     color: var(--instructions-bg-color);
-    font-size: 18px;
 }
 
 @media only screen and (min-width: 570px) and (max-width: 899px){
-
     header{
         height: 150px;
     }
@@ -146,6 +173,7 @@ footer p {
     
     header {
         height: 170px;
+
     }
 
     .instructions {

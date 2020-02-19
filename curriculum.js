@@ -24,6 +24,7 @@ const createCourseElement = ({
 }) => {
 
     const course = document.createElement('div');
+    const courseCode = document.createElement('p');
     const courseTitle = document.createElement('h2');
     const courseCredits = document.createElement('p');
 
@@ -31,12 +32,17 @@ const createCourseElement = ({
     course.classList.add('course');
     course.classList.add(setCourseStatus(course.id));
     course.onclick = _ => courseEventHandler(course);
-    courseTitle.innerHTML = `[${id}]<br/>${title}`;
+
+    courseCode.innerHTML = id;
+    courseCode.className = 'course-code';
+
+    courseTitle.innerHTML = title;
     courseTitle.className = 'course-title';
 
     courseCredits.innerHTML = `${credits} horas`;
     courseCredits.className = 'course-credits'
 
+    course.appendChild(courseCode);
     course.appendChild(courseTitle);
     course.appendChild(courseCredits);
 
