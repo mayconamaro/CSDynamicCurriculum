@@ -1,11 +1,14 @@
 var courses;
 var creditSum = 0;
 const curriculumContainer = document.getElementById('curriculum');
+const currentYear = document.getElementById('current-year');
+const date = new Date();
+currentYear.innerHTML = date.getFullYear();
 
 function loadJSON(callback) {
     const xobj = new XMLHttpRequest();
     xobj.overrideMimeType("application/json");
-    xobj.open('GET', 'courses.json', false);
+    xobj.open('GET', './courses/decom.json', false);
     xobj.onreadystatechange = function () {
         if (xobj.readyState == 4 && xobj.status == "200") {
             callback(xobj.responseText);
@@ -24,6 +27,7 @@ const createCourseElement = ({
 }) => {
 
     const course = document.createElement('div');
+    const courseCode = document.createElement('p');
     const courseTitle = document.createElement('h2');
     const courseCredits = document.createElement('p');
 
@@ -31,12 +35,17 @@ const createCourseElement = ({
     course.classList.add('course');
     course.classList.add(setCourseStatus(course.id));
     course.onclick = _ => courseEventHandler(course);
-    courseTitle.innerHTML = `[${id}]<br/>${title}`;
+
+    courseCode.innerHTML = id;
+    courseCode.className = 'course-code';
+
+    courseTitle.innerHTML = title;
     courseTitle.className = 'course-title';
 
     courseCredits.innerHTML = `${credits} horas`;
     courseCredits.className = 'course-credits'
 
+    course.appendChild(courseCode);
     course.appendChild(courseTitle);
     course.appendChild(courseCredits);
 

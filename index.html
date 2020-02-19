@@ -10,22 +10,39 @@
 <body>
     <main>
         <header>
-            <h1>Grade Curricular de Ciência da Computação na UFOP</h1>
+            <nav class="navbar">
+                <ul class="navbar-items">
+                    <li>logo</li>
+                    <li>
+                        Selecione o curso: 
+                        <select name="course" class="navbar-select">
+                        <option value="ciencia da computação">Ciência da Computação</option>
+                        <option value="Action 1">Action 1</option>
+                        <option value="Action 2">Action 2</option>
+                        <option value="Action 3">Action 3</option>
+
+                    </select>
+                </li>
+                    <a href=""><i class="fab fa-github fa-2x" aria-hidden="true" title="Repositório no Github"></i></a>
+                </ul>
+            </nav>
         </header>
         <div class="instructions">
-            <p>Clique nas caixas para interagir com os pré-requisitos das disciplinas</p>
+            <p>Clique em uma disciplina para marca-lá como concluída</p>
+            <div class="credit-info">
+                <p class="credit-info-text">Carga horária cumprida: <span id="credit-sum">0</span></p>
+            </div>
         </div>
-        <div class="credit-info">
-            <p class="credit-info-text">Carga horária cumprida: <span id="credit-sum">0</span></p>
-        </div>
+       
         <section id="curriculum" class="curriculum">
             <!-- add rows and columns. columns will relate to quarter -->
         </section>
     </main>
     
-    <footer>
-        <p>Feito com <span class="heart">❤️</span> por Maycon Amaro e Flávia Nunes</p>
+    <footer class="footer">
+        <p>Feito com <span class="heart">♥</span> por <a href="http://mayconamaro.xyz/">Maycon Amaro</a> e <a href="fluvixx.dev">Flávia Nunes</a> | <span id="current-year"></span></p>
     </footer>
     <script src="./curriculum.js"></script>
+    <script src="https://kit.fontawesome.com/3d12299869.js" crossorigin="anonymous"></script>
 </body>
 </html>
