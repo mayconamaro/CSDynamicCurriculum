@@ -1,6 +1,9 @@
 var courses;
 var creditSum = 0;
 const curriculumContainer = document.getElementById('curriculum');
+const currentYear = document.getElementById('current-year');
+const date = new Date();
+currentYear.innerHTML = date.getFullYear();
 
 function loadJSON(callback) {
     const xobj = new XMLHttpRequest();
