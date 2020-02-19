@@ -1,4 +1,5 @@
 var courses;
+var creditSum = 0;
 const curriculumContainer = document.getElementById('curriculum');
 
 function loadJSON(callback) {
@@ -13,11 +14,14 @@ function loadJSON(callback) {
     xobj.send(null);
 }
 
-loadJSON(response => {
-    courses = JSON.parse(response);
-});
-
-const createCourseElement = ({id, title, credits, requires, quarter, isCompleted}) => {
+const createCourseElement = ({
+    id,
+    title,
+    credits,
+    requires,
+    quarter,
+    isCompleted
+}) => {
 
     const course = document.createElement('div');
     const courseTitle = document.createElement('h2');
@@ -41,6 +45,9 @@ const createCourseElement = ({id, title, credits, requires, quarter, isCompleted
 
 const createGrid = _ => {
 
+    while (curriculumContainer.firstChild) {
+        curriculumContainer.removeChild(curriculumContainer.firstChild)
+    }
     const quarters = courses.reduce(function (memo, course) {
         if (!memo[course["quarter"]]) {
             memo[course["quarter"]] = [];
@@ -52,7 +59,6 @@ const createGrid = _ => {
     const columns = [];
 
     for (const [i, q] of Object.entries(quarters)) {
-        console.log(q);
         const col = document.createElement('div');
         col.className = 'curriculum-column';
         q.forEach(course => {
@@ -66,20 +72,21 @@ const createGrid = _ => {
     }
 }
 
-
-
 const completeCourse = (course) => {
- 
+
     const courseData = courses.find(c => course.id == c.id);
 
     if (!courseData.isCompleted) {
-
         const isRequirementsMet = courseData.requires.map(c => c.isCompleted);
 
         if (isRequirementsMet.every(c => c)) {
             course.classList.remove('available');
             course.classList.add('completed');
-            console.log("requirements met!");
+            courses.forEach(course => {
+                if (course === courseData) {
+                    course.isCompleted = true;
+                }
+            })
         } else {
             console.log("some requirements aren't met");
         }
@@ -89,12 +96,25 @@ const completeCourse = (course) => {
 const setCourseStatus = (id) => {
 
     const courseData = courses.find(c => c.id === id);
-
-    if (!courseData.requires.length || (courseData.requires.map(c => c.isCompleted)).every(c => c))
+    const requires = getRequires(courseData);
+    if (!requires.length) return 'available';
+    if (requires.map(r => r.isCompleted).every(c => c))
         return 'available';
     else
         return 'blocked';
 
 }
+
+const getRequires = (course) => {
+    const result = course.requires.map(id => {
+        // só pode fazer o find se o requisito for uma disciplina, e não carga horária
+        return courses.find(c => c.id === id)
+    })
+}
+
+loadJSON(response => {
+    courses = JSON.parse(response);
+});
+
 
 createGrid();
